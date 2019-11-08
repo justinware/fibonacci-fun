@@ -4,12 +4,18 @@ import IDataSource from '../types/IDataSource';
 class FibonacciDataSource implements IDataSource<number> {
   
   private _sequence: Array<number> = [0, 1];
+  private _sequenceMax: number;
   
+  constructor(sequenceMax: number) {
+
+    this._sequenceMax = sequenceMax;
+  }
+
   private _buildSequence(): void {
 
-    const sequenceMax = 1000 - this._sequence.length;
+    const maxIndex = this._sequenceMax - this._sequence.length;
     
-    for (let i = 0; i < sequenceMax; i++) {
+    for (let i = 0; i < maxIndex; i++) {
       
       this._sequence.push(this._sequence[i] + this._sequence[i + 1]);
     }
