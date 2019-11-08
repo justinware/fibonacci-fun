@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.4",
     "@types/chai-as-promised": "^7.1.2",
+    "@types/lodash": "^4.14.145",
     "@types/mocha": "^5.2.7",
     "@types/sinon-chai": "^3.2.3",
     "chai": "^4.2.0",
@@ -22,5 +23,9 @@
     "sinon-chai": "^3.3.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "rxjs": "^6.5.3"
   }
 }
