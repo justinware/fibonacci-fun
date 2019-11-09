@@ -30,8 +30,7 @@ class Notifier implements INotifier {
 
   private _pumpStatistics(): void {
 
-    // TODO: Only pump also if statistics.length > 0
-    if (!this._isPaused) {
+    if (!this._isPaused && this._store.statistics.length > 0) {
 
       this._statsStreamObserver.next(this._store.statistics);
     }

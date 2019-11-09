@@ -2,20 +2,25 @@
   "name": "fibonacci-fun",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*Spec.ts"
+    "test": "mocha test/**/*Spec.ts",
+    "build": "gulp build --gulpfile gulpfile.ts --require ts-node/register",
+    "start:console": "node dist/console/index.js"
   },
   "author": "Justin Ware",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.2.4",
     "@types/chai-as-promised": "^7.1.2",
+    "@types/figlet": "^1.2.0",
+    "@types/gulp": "^4.0.6",
     "@types/lodash": "^4.14.145",
     "@types/mocha": "^5.2.7",
     "@types/sinon-chai": "^3.2.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "chalk": "^3.0.0",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
     "mocha": "^6.2.2",
@@ -25,6 +30,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
+    "figlet": "^1.2.4",
     "lodash": "^4.17.15",
     "rxjs": "^6.5.3"
   }
