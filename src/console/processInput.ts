@@ -1,5 +1,5 @@
 import IController from '../shared/types/IController';
-import { showBadInput, showFib } from './messages';
+import { showBadInput, showFib, showTimerPaused, showTimerResumed } from './messages';
 
 export default (input: string, controller: IController):boolean => {
 
@@ -16,12 +16,14 @@ export default (input: string, controller: IController):boolean => {
     case (inputValue === 'halt'): {
 
       controller.halt();
+      showTimerPaused();
       break;
     }
 
     case (inputValue === 'resume'): {
 
       controller.resume();
+      showTimerResumed();
       break;
     }
 

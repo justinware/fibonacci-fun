@@ -1,6 +1,6 @@
 import * as readline from 'readline';
 
-import { banner } from './messages';
+import { showBanner } from './messages';
 import { getUpdateDuration, goodbye } from './io';
 import IController from '../shared/types/IController';
 import wireup from '../shared/core/wireup';
@@ -19,9 +19,9 @@ const initialise = async (): Promise<IController> => {
 
 const main = async (): Promise<void> => {
 
-  banner();
+  showBanner();
   await repl(await initialise(), rl);
-  await goodbye(rl);
+  await goodbye();
 
   rl.close();
 }

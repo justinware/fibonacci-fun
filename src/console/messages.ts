@@ -18,9 +18,8 @@ const write = (colour: string, message: string): void => {
 export const updateDuration: string = 'Please input the number of time in seconds between emitting numbers and their frequency\n';
 export const firstNumber: string = 'Please enter the first number\n';
 export const nextNumber: string = 'Please enter the next number\n';
-export const goodbye: string = `${chalk[colours.yellow]('Thanks for playing, press any key to exit.')}`;
 
-export const banner = (): void => {
+export const showBanner = (): void => {
 
   console.clear();
   write(colours.yellow, figlet.textSync('Fibonacci Fun', { horizontalLayout: 'full' }));
@@ -55,4 +54,19 @@ export const showStats = (stats: IUserInputStats) => {
 export const showFib = () => {
 
   write(colours.green, 'FIB');
+};
+
+export const showTimerPaused = () => {
+
+  write(colours.yellow, 'Timer paused');
+};
+
+export const showTimerResumed = () => {
+
+  write(colours.yellow, 'Timer resumed');
+};
+
+export const showGoodbye = () => {
+
+  write(colours.yellow, 'Thanks for playing, press any key to exit.');
 };

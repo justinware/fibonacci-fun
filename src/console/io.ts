@@ -1,6 +1,6 @@
 import * as readline from 'readline';
 
-import { updateDuration, firstNumber, nextNumber, goodbye as goodbyeMessage } from './messages';
+import { updateDuration, firstNumber, nextNumber, showGoodbye } from './messages';
 
 const askQuestion = (rl: readline.Interface, question: string): Promise<string> => {
 
@@ -26,7 +26,17 @@ export const getNextNumber = (rl: readline.Interface) => {
   return askQuestion(rl, nextNumber);
 };
 
-export const goodbye = (rl: readline.Interface) => {
+export const goodbye = (): Promise<void> => {
 
-  return askQuestion(rl, goodbyeMessage);
+  showGoodbye();
+  process.stdin.setRawMode(true);
+  
+  return new Promise<void>((resolve) => {
+    
+    process.stdin.once('data', () => {
+    
+      process.stdin.setRawMode(false);
+      resolve();
+    });
+  });
 };
