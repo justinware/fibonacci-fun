@@ -1,6 +1,8 @@
 import * as chalk from 'chalk';
 import * as figlet from 'figlet';
 
+import { IUserInputStats } from '../shared/types/IUserInputStore';
+
 const colours = {
   yellow: 'yellow',
   cyan: 'cyan',
@@ -13,28 +15,36 @@ const write = (colour: string, message: string): void => {
   console.log(chalk[colour](message));
 };
 
-export const banner = () => {
+export const updateDuration: string = 'Please input the number of time in seconds between emitting numbers and their frequency\n';
+export const firstNumber: string = 'Please enter the first number\n';
+export const nextNumber: string = 'Please enter the next number\n';
+export const goodbye: string = `${chalk[colours.yellow]('Thanks for playing, press any key to exit.')}`;
 
+export const banner = (): void => {
+
+  console.clear();
   write(colours.yellow, figlet.textSync('Fibonacci Fun', { horizontalLayout: 'full' }));
   
   const message =
-    `This program repeatedly asks to input a command or number,
-checks if input number is in the 1st 1000 Fibonacci sequence,
-and then displays number frequency statistics on a timer.
+    `This program repeatedly asks to input a command or number, checks if input number is in
+the 1st 1000 Fibonacci sequence, and then displays number frequency statistics on a timer.
     
-Enter a number when prompted OR the following commands:
+To use the program enter a number when prompted OR the following commands:
     
-  ${chalk['green']('halt')}: pause the updates of number statistics
-  ${chalk['green']('resume')}: resume the updates of number statistics
-  ${chalk['green']('quit')}: terminate the program\n`;
+  ${chalk[colours.cyan]('halt')}: pause the updates of number statistics
+  ${chalk[colours.cyan]('resume')}: resume the updates of number statistics
+  ${chalk[colours.cyan]('quit')}: terminate the program\n`;
 
   console.log(message);
 };
 
-// export const status = (message, success = true) => {
+export const showBadInput = (): void => {
+  
+  write(colours.red, 'Bad input. Please enter a valid number or one of the commands: halt, resume or quit.');
+};
 
-//   const colour = success ? colours.green : colours.red;
-//   const icon = success ? figures.tick : figures.cross;
+export const showStats = (stats: IUserInputStats) => {
 
-//   write(colour, `${icon} ${message}`);
-// };
+  // TODO: Format !!!
+  console.log(stats);
+};

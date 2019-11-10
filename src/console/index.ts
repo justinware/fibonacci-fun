@@ -1,16 +1,29 @@
-import { banner } from './messages';
+import * as readline from 'readline';
 
+import { banner } from './messages';
+import { getUpdateDuration, goodbye } from './io';
 import IController from '../shared/types/IController';
 import wireup from '../shared/core/wireup';
+import repl from './repl';
 
-console.clear();
-banner();
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-let controller: IController = undefined;
+const initialise = async (): Promise<IController> => {
 
-wireup(10)
-  .then((c) => { controller = c; })
-  .then(() => {
+  const duration = await getUpdateDuration(rl);
 
-    console.log('Ready');
-  });
+  // TODO: Make sure duration is actually a number before blindly parseInt'ing it !!!
+  //       Add validation if had more time...
+  return await wireup(parseInt(duration));
+};
+
+const main = async (): Promise<void> => {
+
+  banner();
+  await repl(await initialise(), rl);
+  await goodbye(rl);
+
+  rl.close();
+}
+
+main();
