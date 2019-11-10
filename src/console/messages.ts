@@ -1,7 +1,7 @@
 import * as chalk from 'chalk';
 import * as figlet from 'figlet';
 
-import { IUserInputStats } from '../shared/types/IUserInputStore';
+import { IUserInputData, IUserInputStats } from '../shared/types/IUserInputStore';
 
 const colours = {
   yellow: 'yellow',
@@ -27,9 +27,10 @@ export const banner = (): void => {
   
   const message =
     `This program repeatedly asks to input a command or number, checks if input number is in
-the 1st 1000 Fibonacci sequence, and then displays number frequency statistics on a timer.
+the 1st 1000 numbers of the Fibonacci sequence, and then displays input number frequency 
+statistics (counts) on a user-specified timer.
     
-To use the program enter a number when prompted OR the following commands:
+To use the program enter a number when prompted OR one of the following commands:
     
   ${chalk[colours.cyan]('halt')}: pause the updates of number statistics
   ${chalk[colours.cyan]('resume')}: resume the updates of number statistics
@@ -45,6 +46,13 @@ export const showBadInput = (): void => {
 
 export const showStats = (stats: IUserInputStats) => {
 
-  // TODO: Format !!!
-  console.log(stats);
+  const statsText = stats.map((s: IUserInputData) => `${s.value}:${s.frequency}`)
+                         .join(', ');
+  
+  write(colours.green, statsText);
+};
+
+export const showFib = () => {
+
+  write(colours.green, 'FIB');
 };
