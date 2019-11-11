@@ -55,29 +55,6 @@ describe('Notifer', () => {
     });
   });
 
-  describe('#statsStream', () => {
-              
-    it(`should pump when the timer fires and notifier is not paused`, () => {
-    
-      // let pumpCount = 0;
-      // let lastResult = undefined;
-      // let statsStreamSubscription = notifier.statsStream.subscribe((r: IUserInputStats) => { lastResult = r; pumpCount++; console.log(pumpCount); });
-      
-      // stubTimerObserver.next(1);
-      // stubTimerObserver.next(99);
-      // stubTimerObserver.next(99);
-
-      // console.log(lastResult);
-      
-      // //expect(pumpCount).to.equal(3);
-      // //expect(lastResult).to.deep.equal(stubStats);
-
-      // statsStreamSubscription.unsubscribe();
-    });
-
-    it(`should not pump when the notifier is paused`, () => {
-    
-
-    });
-  });  
+  // TODO: Add tests around the async pumping of user input stats and the various conditions involved...if had more time.
+  //       Do this be faking time with a TestScheduler or faking the timer observable, to force-pump the stats observable
 });
