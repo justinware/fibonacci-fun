@@ -5,7 +5,7 @@
   "scripts": {
     "test": "mocha test/**/*Spec.ts",
     "build": "gulp build --gulpfile gulpfile.ts --require ts-node/register",
-    "start:console": "node dist/console/index.js"
+    "start": "node dist/console/index.js"
   },
   "author": "Justin Ware",
   "license": "MIT",

@@ -1,4 +1,4 @@
-import { expect } from './../assertions';
+import { expect } from '../assertions';
 import UserInputStore from '../../src/shared/core/userInputStore';
 
 describe('UserInputStore', () => {
