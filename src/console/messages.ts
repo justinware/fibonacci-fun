@@ -25,7 +25,8 @@ export const showBanner = (): void => {
   write(colours.yellow, figlet.textSync('Fibonacci Fun', { horizontalLayout: 'full' }));
   
   const message =
-    `This program repeatedly asks to input a command or number, checks if input number is in
+    `Author: Justin Ware\n
+This program repeatedly asks to input a command or number, checks if input number is in
 the 1st 1000 numbers of the Fibonacci sequence, and then displays input number frequency 
 statistics (counts) on a user-specified timer.
     
