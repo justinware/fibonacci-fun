@@ -1,4 +1,5 @@
 # Fibonacci Fun
+[![Build Status](https://travis-ci.com/justinware/fibonacci-fun.svg?branch=master)](https://travis-ci.com/justinware/fibonacci-fun)
 
 This Kata is designed to show various aspects of programming (and testing) with TypeScript, from user input processing, business logic & data manipulation, component interaction, modularity, to async operations and data streaming.
 
@@ -8,7 +9,7 @@ How to the use the program is described in the text once it starts up.
 
 ## Instructions to run
 
-***Note**: Requires node v10 and either yarn or npm installed correctly and in the path.*
+***Note**: Requires node v10 or greater and either yarn or npm installed correctly and in the path.*
 
 ```sh
 $ git clone https://github.com/justinware/fibonacci-fun.git
